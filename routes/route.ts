@@ -10,12 +10,8 @@ import {
 const router = Router();
 
 router.route("/").get(welcomePage);
-
-router
-  .route("/breast-cancers")
-  .get(getAllBreastCancers)
-  .get(searchParticularBreastCancer);
-
-router.route("/breast-cancers/:slug").get(getParticularBreastCancer);
+router.route("/breast-cancers").get(getAllBreastCancers);
+router.route("/breast-cancers/search").get(searchParticularBreastCancer);
+router.route("/breast-cancers/:_id").get(getParticularBreastCancer);
 
 export default router;

@@ -37,8 +37,8 @@ const getParticularBreastCancer = async (
   next: NextFunction,
 ) => {
   try {
-    const { slug } = req.params;
-    const breastCancer = await BreastCancer.findOne({ slug });
+    const { _id } = req.params;
+    const breastCancer = await BreastCancer.findOne({ _id });
 
     if (breastCancer == null) {
       throw new ErrorHandler(404, "Breast cancer does not exist");
@@ -62,8 +62,17 @@ const searchParticularBreastCancer = async (
 ) => {
   try {
     const { q } = req.query;
+
+    const formatQuery = decodeURI(q as string);
+
     const breastCancers = await BreastCancer.find({
-      name: { $regex: q, $options: "i" },
+      $or: [
+        { commonName: { $regex: formatQuery, $options: "i" } },
+        { type: { $regex: formatQuery, $options: "i" } },
+        { taxname: { $regex: formatQuery, $options: "i" } },
+        { symbol: { $regex: formatQuery, $options: "i" } },
+        { taxId: { $regex: formatQuery, $options: "i" } },
+      ],
     });
 
     if (breastCancers.length < 1) {

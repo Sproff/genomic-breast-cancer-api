@@ -1,4 +1,8 @@
-import express, { type Request, type Response } from "express";
+import express, {
+  type NextFunction,
+  type Request,
+  type Response,
+} from "express";
 import mongoose, { type ConnectOptions } from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -15,7 +19,7 @@ const port = process.env.PORT || 9000;
 
 app.use(express.json());
 app.use("/", routeRouter);
-app.use((err: CustomError, req: Request, res: Response) => {
+app.use((err: CustomError, req: Request, res: Response, next: NextFunction) => {
   handleError(err, res);
 });
 
@@ -23,7 +27,6 @@ mongoose
   .connect(process.env.DB_CONNECTION_STRING || "", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // useCreateIndex: true,
   } as ConnectOptions)
   .then(() => {
     app.listen(port, () => {
