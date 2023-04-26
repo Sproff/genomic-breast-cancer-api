@@ -2,7 +2,7 @@
   "name": "genomic-breast-cancer-api",
   "version": "1.0.0",
   "description": "Genomic Breast Cancer API",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "dev": "nodemon app.ts",
     "format": "eslint . --ext .ts --fix",
