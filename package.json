@@ -1,5 +1,5 @@
 {
-  "name": "genomic-breast-cancer-api",
+  "name": "genomic-data-visualization-api",
   "version": "1.0.0",
   "description": "Genomic Breast Cancer API",
   "main": "app.ts",
