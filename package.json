@@ -35,5 +35,8 @@
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
     "typescript": "*"
+  },
+  "engines": {
+    "node": ">=14.20.1"
   }
 }
