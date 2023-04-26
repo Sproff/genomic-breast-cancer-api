@@ -1,12 +1,13 @@
 {
   "name": "genomic-data-visualization-api",
   "version": "1.0.0",
-  "description": "Genomic Breast Cancer API",
+  "description": "Genomic Data Visualization API",
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon app.ts",
     "format": "eslint . --ext .ts --fix",
-    "start": "node app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sproff",
@@ -34,7 +35,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
-    "typescript": "*"
+    "typescript": "^5.0.4"
   },
   "engines": {
     "node": ">=14.20.1"
