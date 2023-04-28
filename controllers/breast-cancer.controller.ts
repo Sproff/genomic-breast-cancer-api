@@ -68,10 +68,12 @@ const searchParticularBreastCancer = async (
     const breastCancers = await BreastCancer.find({
       $or: [
         { commonName: { $regex: formatQuery, $options: "i" } },
-        { type: { $regex: formatQuery, $options: "i" } },
-        { taxname: { $regex: formatQuery, $options: "i" } },
+        { geneId: { $regex: formatQuery, $options: "i" } },
+        { orientation: { $regex: formatQuery, $options: "i" } },
         { symbol: { $regex: formatQuery, $options: "i" } },
         { taxId: { $regex: formatQuery, $options: "i" } },
+        { taxname: { $regex: formatQuery, $options: "i" } },
+        { type: { $regex: formatQuery, $options: "i" } },
       ],
     });
 
