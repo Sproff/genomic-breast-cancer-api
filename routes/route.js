@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var breast_cancer_controller_1 = require("../controllers/breast-cancer.controller");
+var router = (0, express_1.Router)();
+router.route("/").get(breast_cancer_controller_1.welcomePage);
+router.route("/breast-cancers").get(breast_cancer_controller_1.getAllBreastCancers);
+router.route("/breast-cancers/search").get(breast_cancer_controller_1.searchParticularBreastCancer);
+router.route("/breast-cancers/:_id").get(breast_cancer_controller_1.getParticularBreastCancer);
+exports.default = router;
