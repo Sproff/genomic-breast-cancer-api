@@ -2,7 +2,7 @@
   "name": "genomic-data-visualization-api",
   "version": "1.0.0",
   "description": "Genomic Data Visualization API",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon index.ts",
     "format": "eslint . --ext .ts --fix",
