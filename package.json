@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "nodemon index.ts",
     "format": "eslint . --ext .ts --fix",
-    "build": "yarn install && tsc",
-    "start": "yarn install && yarn build && node dist/index.js",
+    "build": "tsc",
+    "start": "yarn build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sproff",
