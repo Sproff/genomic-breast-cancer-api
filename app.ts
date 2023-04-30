@@ -23,14 +23,15 @@ app.use((err: CustomError, req: Request, res: Response, next: NextFunction) => {
   handleError(err, res);
 });
 
-mongoose
-  .connect(process.env.DB_CONNECTION_STRING || "", {
+const triggerServer = async () => {
+  await mongoose.connect(process.env.DB_CONNECTION_STRING || "", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  } as ConnectOptions)
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`Server is running at port: ${port}`);
-    });
-    console.log("DB Connected Successfully");
+  } as ConnectOptions);
+
+  app.listen(port, () => {
+    console.log(`Server is running at port: ${port}`);
   });
+  console.log("DB Connected Successfully");
+};
+triggerServer();
