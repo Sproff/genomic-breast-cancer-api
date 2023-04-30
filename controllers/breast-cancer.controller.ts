@@ -31,30 +31,6 @@ const getAllBreastCancers = async (
   }
 };
 
-const getParticularBreastCancer = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  try {
-    const { _id } = req.params;
-    const breastCancer = await BreastCancer.findOne({ _id });
-
-    if (breastCancer == null) {
-      throw new ErrorHandler(404, "Breast cancer does not exist");
-    }
-
-    res.status(200).json({
-      status: "success",
-      data: {
-        breastCancer,
-      },
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
 const searchParticularBreastCancer = async (
   req: Request,
   res: Response,
@@ -93,9 +69,4 @@ const searchParticularBreastCancer = async (
   }
 };
 
-export {
-  welcomePage,
-  getAllBreastCancers,
-  getParticularBreastCancer,
-  searchParticularBreastCancer,
-};
+export { welcomePage, getAllBreastCancers, searchParticularBreastCancer };
